@@ -11,7 +11,7 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    website: {
+    github: {
         type: String,
         trim: true
     },
@@ -19,7 +19,7 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    hobbies: {
+    languages: {
         type: [String],
         trim: true
     },

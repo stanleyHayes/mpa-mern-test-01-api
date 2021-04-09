@@ -28,12 +28,12 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 app.post('/api/v1/users', async (req, res) => {
     try {
-        const {email, name, bio, occupation, hobbies, website} = req.body;
+        const {email, name, bio, occupation, languages, github} = req.body;
         let user = await User.findOne({email});
-        if (!user) {
+        if (user) {
             return res.status(409).json({message: `Account with email ${email} already exists`});
         }
-        user = await User.create({email, name, occupation, bio, hobbies, website});
+        user = await User.create({email, name, occupation, bio, languages, github});
         res.status(201).json({message: `User details successfully saved`, data: user});
     } catch (e) {
         res.status(500).json({message: `${e.message}`});
