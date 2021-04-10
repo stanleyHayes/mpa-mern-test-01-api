@@ -4,7 +4,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
-    "mongoose": "^5.12.3"
+    "mongoose": "^5.12.3",
+    "validator": "^13.5.2"
   },
   "name": "mpa-mern-test-01-api",
   "version": "1.0.0",

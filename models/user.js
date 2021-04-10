@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+import validator from "validator";
+
 
 const userSchema = new Schema({
     name: {
@@ -28,7 +30,12 @@ const userSchema = new Schema({
         trim: true,
         required: true,
         unique: true,
-        lowercase: true
+        lowercase: true,
+        validate: function (value) {
+            if(!validator.isEmail(value)){
+                throw new Error(`Invalid email ${value}`);
+            }
+        }
     }
 });
 
