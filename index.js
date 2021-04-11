@@ -4,6 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
+import morgan from "morgan";
 
 dotenv.config({path: './config/config.env'});
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(morgan("dev"))
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
